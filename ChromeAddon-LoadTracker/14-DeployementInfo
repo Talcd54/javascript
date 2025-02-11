@@ -1,0 +1,47 @@
+so even if the app is not complete yet and there is still a lot to build, Go ahead and deploy it right now. Because it's so much fun to see your app out in the wild that gives a ton of motivation to  continue on. so continu on doing the deployement so that we will see our app out in the chrome browser.
+As you can see I've added 2 files beside the css/html/js files. 1 is png, a dollar sign as our sales representitives, the other one is a manifest.json
+what is JSON?
+this is short for JavaScript Object Notation. this is a way for developpers to store and send data. And it's often used when you , f.e. wanna send a piece of data from a server to a client that is to a browser. In our case we are using this json to configure our app and to provide metadata about it.
+So Google Chrome will read through this and look to the name, it's called 'Leads tracker', well then Google chrome will give our app the name Leads tracker. There is also a version and some actions for Chrome to take.
+{
+    "manifest_version": 3,
+    "version": "1.0",
+    "name": "Leads tracker",
+    "action": {
+        "default_popup": "index.html",
+        "default_icon": "icon.png"
+    }
+}
+the version will help us the next time we deploy to see that this is a new version of this app. 
+the default_icon, in this case, needs to point to the folder of your code where you stashed the images.
+the manifest_version is simply the version of this json file that is now on 3. you can have a look at
+https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/developer for more information
+The default popup is the html page we've been building all along. So use the name of your html page for this.
+the there's 1 thing we need to fix, just that a chrome extension will only be as wide as it needs to be. and strictly speaking, our app doesn't need to be that large or high. Thus we'll need to set a min width on the index.css. f.e. if you use in the body tags  min-width: 400px; our input field is outside of the app. So Google Chrome will understand that we don't want that. Tus 400px is the minimum size.
+So now we have finally everything in place
+
+Now we are ready to deploy our code. In your webbrowser go to 
+Chrome://extensions
+ this will list all of your extensions. You'll see a button on the top right that says 'developer'. Go ahead an put it on. Now you'll see 3 extra buttons on the page:
+* Load unpacked
+* pack extension
+* Update
+And you're going to upload a load unpacked extension. so click that button, that will bring up the file chooser menu, there you need to navigate to the LeadTracker folder, choose that folder and hit select. If it succeeded you will see a 'tracker uploaded' response at the buttom of the page.
+Now open another page e.g. LinkedIn and go to a profile or the home page. Click on your addons --> now you'll see your lead tracker!
+Congratulations!
+
+Although...if you have tried it,  you'll see that each time you add a link, and you're clicking outside the inputfield, the link is gone. This is so called full refresh. So we need to learn how we can store data across each refresh
+
+Little trial:
+Let's open the wikipidea website. when done so open the developers tab (F12 or rightclick > inspect)
+in the 'application ' you can see a lot of elements on the left side but the only one that is interesting for us is the 'Local Storage'. click it open and click on the link that's in it. This is the wikipedia's page. But the purpose here is to show you, that now you've surfed to this page, wikipidia is saving a 
+Key    and a    Value...
+and where did we heard about those already?... Javascript indeed. the value was automatically given and we're not gonna explain that mumbojumbo now, but it will hold a value for the website to remember that we have accessed this page and whenever we come back on this page this value will be reused. As chrome remembers this path you followed.And that is what we need to add to our addon. 
+Let's try to look how to do this:
+open the console in this developer mode 
+add in the the following code:
+localStorage.clear()
+Go back to Local storage --> the content is gone?...
+go back to the console
+localStorage.setItem("myLeads", "https://www.LinkedIn.com") 
+if you now go back to Application you'll see that you have a keyvalue pair in your local storage, because that is actually what this is. This is your own, personal database actually. If you now hit the refresh button, what you see is that yet again wikipedia adds these value pairs again and the myLeads value and key persists. And that is exactly what we need for our addon! Persisting data cross page refresh. So move on and lets interacting with the local storage.

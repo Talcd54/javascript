@@ -1,0 +1,55 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-image: url("/Exercises/images/christmastree.png");
+    background-repeat: no-repeat;
+    
+  }
+  
+  h2 {
+    margin: 20px;
+    color: white;
+    font-size: 24px;
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    text-align: center;
+  }
+  
+  h4 {
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    color: #E05B2B;
+    font-size: 25px;
+    text-align: center;
+  }
+  
+  .calendar-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 2px;
+    padding: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #a64208;
+    border-radius: 20px;
+  }
+  .calendar-box:hover{
+    transform: scale(1.5);
+  }
+
+  .calendar-box {
+    background-color: #F2D95C;
+    color: #BF0404;
+    font-size: 18px;
+    text-align: left;
+    padding: 2px;
+    border: 1px dashed black;
+  }
+  
+  .calendar-box p {
+    margin: 0;
+    text-align: center;
+    font-size: 15px;
+    display: flex;
+  }
+  ol {
+    list-style: none;
+  }
+  

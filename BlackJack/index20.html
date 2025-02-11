@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <h1>Blackjack</h1>
+        <div class="fontColor">
+            <p id="message-el">Want to play a round? first, make your bet!</p>
+            <p id="cards-el"   onclick="startGame()">Cards: </p>
+            <p id="sum-el">Sum:</p>
+            <button id="button-start" class = "button-el" onclick="startGame()">START GAME</button>
+            <button id="button-new" class = "button-el"  onclick="newCard()">NEW CARD</button>
+            <p id="player-el"></p>
+            <button id="increase-bet" class = "button-el"  onclick="increaseBet()">Increase Bet</button>
+            <button id="decrease-bet" class = "button-el"  onclick="decreaseBet()">Decrease Bet</button>
+            <button class = "button-el"  onclick="resetGame()">Reset</button>
+            <p id="bet-amount">Your bet: </p>
+        </div>
+        <script src="index20.js"></script>
+    </body>
+</html>

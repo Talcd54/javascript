@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <h1>Blackjack</h1>
+        <div class="fontColor">
+            <p id="message-el">Place your bets!</p>
+            <p id="cards-el">Cards: </p>
+            <p id="sum-el">Sum:</p>
+            <button id="button-start" class = "button-el" onclick="startGame()">START GAME</button>
+            <button id="button-new" class = "button-el"  onclick="newCard()">NEW CARD</button>
+            <button id="button-payout" class = "button-el"  onclick="payoutWins()">PAYOUT</button>
+            <p id="player-el"></p>
+            <button id="increase-bet" class = "button-el"  onclick="increaseBet()">Increase Bet</button>
+            <button id="decrease-bet" class = "button-el"  onclick="decreaseBet()">Decrease Bet</button>
+            <button id="reset"        class = "button-el"  onclick="resetGame()">Reset</button>
+            <p id="bet-amount">Your bet: </p>
+        </div>
+        <script src="testBJ.js"></script>
+    </body>
+</html>
